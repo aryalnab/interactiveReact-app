@@ -1,12 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      spinLogo:true
+    }
+    this.toggleSpin = this.toggleSpin.bind(this);
+  }
+
+
+
+toggleSpin(){
+  this.setState(prevState=> ({
+    spinLogo : !prevState.spinLogo
+  }));
+}
+
+  render(){
+
+ 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} 
+        className={this.state.spinLogo ? "App-logo": "App-logo-static" }
+        alt="logo"
+        onMouseEnter = {this.toggleSpin} 
+        onMouseLeave = {this.toggleSpin}/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -22,5 +45,5 @@ function App() {
     </div>
   );
 }
-
+}
 export default App;
