@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.png';
 import './App.css';
+import './animate.css';
 
 class App extends React.Component {
   constructor(props){
@@ -26,7 +27,7 @@ toggleSpin(){
     <div className="App">
       <header className="App-header">
         <img src={logo} 
-        className={this.state.spinLogo ? "App-logo": "App-logo-static" }
+        className={this.state.spinLogo ? "App-logo-static": "animated tada " }
         alt="logo"
         onMouseEnter = {this.toggleSpin} 
         onMouseLeave = {this.toggleSpin}/>
